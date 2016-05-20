@@ -2,7 +2,7 @@
   // 1) What is the purpose of the 'this keyword'?
 
       //Answer
-
+    //  used to refer to the antecedent
   // 2) What are the four rules that govern what the 'this keyword' is bound to and describe each?
 
       //Answer
@@ -24,7 +24,13 @@
   //getUsername --> which is a function that returns the current object's username property. *Don't use 'user' instead use the 'this' keyword*
 
     //Code Here
-
+var user = {
+  username: "Sergio",
+  email: "myemail@email.com",
+  getUsername: function() {
+    return this.username;
+  }
+}
 //Now, invoke the getUsername method and verify you got the username of the object and not anything else.
 
 
@@ -32,7 +38,11 @@
 
 
 // Write the function definitions which will make the following function invocations function properly.
-
+function Car(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+}
   //Function Invocations Here
 
 var prius = new Car('Toyota', 'Prius', 2011);
@@ -71,14 +81,14 @@ var getMyUsername = function(){
   console.log(this.username);
 };
 
-setTimeout(getMyUsername, 5000);
+setTimeout(getMyUsername.method, 5000);
 
 //Above you're given an object, a function, and a setTimeout invocation. After 5 seconds, what will the getUsername function return?
 //Note(no tests)
   //Answer Here
-
+// undefined
 //In the example above, what is the 'this keyword' bound to when getUsername runs?
 
   //Answer Here
-
+// username
 //Fix the setTimeout invocation so that the user object will be the focal object when getUsername is ran.
